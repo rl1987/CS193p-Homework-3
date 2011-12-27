@@ -12,8 +12,6 @@
 		B776B8C714A9F25100ADE6ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C614A9F25100ADE6ED /* CoreGraphics.framework */; };
 		B776B8CD14A9F25100ADE6ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B776B8CB14A9F25100ADE6ED /* InfoPlist.strings */; };
 		B776B8CF14A9F25100ADE6ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8CE14A9F25100ADE6ED /* main.m */; };
-		B776B8D314A9F25100ADE6ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8D214A9F25100ADE6ED /* AppDelegate.m */; };
-		B776B8D914A9F25100ADE6ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8D814A9F25100ADE6ED /* ViewController.m */; };
 		B776B8E714A9F2B600ADE6ED /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E014A9F2B600ADE6ED /* AxesDrawer.m */; };
 		B776B8E814A9F2B600ADE6ED /* CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E214A9F2B600ADE6ED /* CalculatorAppDelegate.m */; };
 		B776B8E914A9F2B600ADE6ED /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E414A9F2B600ADE6ED /* CalculatorBrain.m */; };
@@ -32,10 +30,6 @@
 		B776B8CC14A9F25100ADE6ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B776B8CE14A9F25100ADE6ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B776B8D014A9F25100ADE6ED /* GraphCalc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraphCalc-Prefix.pch"; sourceTree = "<group>"; };
-		B776B8D114A9F25100ADE6ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B776B8D214A9F25100ADE6ED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B776B8D714A9F25100ADE6ED /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B776B8D814A9F25100ADE6ED /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B776B8DF14A9F2B600ADE6ED /* AxesDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxesDrawer.h; sourceTree = "<group>"; };
 		B776B8E014A9F2B600ADE6ED /* AxesDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxesDrawer.m; sourceTree = "<group>"; };
 		B776B8E114A9F2B600ADE6ED /* CalculatorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorAppDelegate.h; sourceTree = "<group>"; };
@@ -103,11 +97,7 @@
 				B776B8E414A9F2B600ADE6ED /* CalculatorBrain.m */,
 				B776B8E514A9F2B600ADE6ED /* CalculatorViewController.h */,
 				B776B8E614A9F2B600ADE6ED /* CalculatorViewController.m */,
-				B776B8D114A9F25100ADE6ED /* AppDelegate.h */,
-				B776B8D214A9F25100ADE6ED /* AppDelegate.m */,
 				B776B8F114A9F37F00ADE6ED /* MainStoryboard.storyboard */,
-				B776B8D714A9F25100ADE6ED /* ViewController.h */,
-				B776B8D814A9F25100ADE6ED /* ViewController.m */,
 				B776B8F014A9F33200ADE6ED /* PlotView.h */,
 				B776B8EB14A9F32500ADE6ED /* PlotView.m */,
 				B776B8EC14A9F32600ADE6ED /* PlotViewController.h */,
@@ -191,8 +181,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B776B8CF14A9F25100ADE6ED /* main.m in Sources */,
-				B776B8D314A9F25100ADE6ED /* AppDelegate.m in Sources */,
-				B776B8D914A9F25100ADE6ED /* ViewController.m in Sources */,
 				B776B8E714A9F2B600ADE6ED /* AxesDrawer.m in Sources */,
 				B776B8E814A9F2B600ADE6ED /* CalculatorAppDelegate.m in Sources */,
 				B776B8E914A9F2B600ADE6ED /* CalculatorBrain.m in Sources */,
