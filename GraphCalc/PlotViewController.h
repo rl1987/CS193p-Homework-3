@@ -11,7 +11,6 @@
 
 @property (nonatomic,strong) IBOutlet PlotView *plotView;
 
-
-- (void)drawEquation:(id)equation;
+- (void)setEquation:(id)equation;
 
 @end

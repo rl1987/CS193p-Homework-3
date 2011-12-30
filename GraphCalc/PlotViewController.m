@@ -11,33 +11,31 @@
     [NSDictionary dictionaryWithObject:[NSNumber numberWithDouble:x] 
                                 forKey:@"x"];  
     
-    NSNumber *returnValue = [CalculatorBrain runProgram:_equation 
-                                    usingVariableValues:variableDict];
+    id returnValue = [CalculatorBrain runProgram:_equation 
+                             usingVariableValues:variableDict];
     
-    return [returnValue doubleValue];
+    if ([returnValue isKindOfClass:[NSNumber class]])
+        return [returnValue doubleValue];
+    else
+        return NAN;
     
 }
 
-- (void)drawEquation:(id)equation;
+- (void)setEquation:(id)equation;
 {
-    NSLog(@"PlotViewController drawEquation:");
-    
-    _equation = equation;
-    
+    NSLog(@"PlotViewController setEquation:");
     NSLog(@"%@",_equation);
     
+    //_equation = equation;  
+    _equation = [NSArray arrayWithObjects:@"x",@"cos",nil];
     
+    self.plotView.dataSource = self;
+    
+    [self.plotView setNeedsDisplay];
     
 }
 
 #pragma mark - View lifecycle
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation

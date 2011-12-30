@@ -416,7 +416,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mNN-YL-Sks" kind="push" id="oaP-wa-ad5"/>
+                                    <segue destination="mNN-YL-Sks" kind="push" identifier="Graph Segue" id="oaP-wa-ad5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -439,6 +439,9 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="mNN-YL-Sks" id="FOh-Es-CRg"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="Ko8-0D-uim"/>
                     <connections>
@@ -471,12 +474,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculatorViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="auxillaryDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="debugDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="display" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="PlotView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+            </relationships>
         </class>
         <class className="PlotViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotViewController.h"/>

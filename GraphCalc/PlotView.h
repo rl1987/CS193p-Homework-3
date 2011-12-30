@@ -11,7 +11,7 @@
     
 }
 
-@property (nonatomic,weak) id <PlotViewDataSource> dataSource;
+@property (nonatomic,weak) IBOutlet id <PlotViewDataSource> dataSource;
 
 @property (nonatomic,assign) CGFloat scale;
 @property (nonatomic,assign) CGPoint origin;

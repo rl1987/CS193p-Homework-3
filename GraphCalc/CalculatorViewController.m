@@ -8,17 +8,12 @@
 @property (nonatomic, strong) CalculatorBrain *brain;
 @property (nonatomic, strong) NSMutableArray *history;
 
-#define DEBUG_DISPLAY_ENABLED 1
-
-- (void)refreshDebugDisplayIfNeeded;
-
 @end
 
 @implementation CalculatorViewController
 
 @synthesize display;
 @synthesize auxillaryDisplay;
-@synthesize debugDisplay;
 @synthesize userIsInTheMiddleOfTypingANumber;
 @synthesize userIsTypingFloatingPointNumber;
 @synthesize brain = _brain;
@@ -52,6 +47,9 @@
     
     return _testVariableValues;
 }
+
+#pragma mark -
+#pragma mark Target action stuff
 
 - (IBAction)dotPressed 
 {
@@ -112,7 +110,6 @@
     self.userIsInTheMiddleOfTypingANumber = NO;
         
     [self.testVariableValues removeAllObjects];
-    self.debugDisplay.text = @"";
 }
 
 - (IBAction)plusMinusPressed:(UIButton *)sender
@@ -173,22 +170,6 @@
     }
 }
 
-- (void)refreshDebugDisplayIfNeeded
-{
-    if (DEBUG_DISPLAY_ENABLED)
-    {
-        NSArray *variablesNames = [self.testVariableValues allKeys];
-        NSMutableString *debugMessage = [[NSMutableString alloc] init];
-        
-        for (NSString *variable in variablesNames)
-            [debugMessage appendFormat:@"%@ = %g   ",
-              variable,[[self.testVariableValues objectForKey:variable] 
-                        doubleValue]];
-        
-        self.debugDisplay.text = debugMessage;
-    }
-}
-
 - (IBAction)variablePressed:(UIButton *)sender 
 {
     NSString *variableName = sender.currentTitle;
@@ -240,102 +221,6 @@
             [CalculatorBrain descriptionOfProgram:self.history];
 }
 
-- (IBAction)test1Pressed 
-{
-    [self.testVariableValues setObject:[NSNumber numberWithInt:1]
-                                forKey:@"a"];
-    
-    [self.testVariableValues setObject:[NSNumber numberWithInt:2]
-                                forKey:@"b"]; 
-    
-    [self.testVariableValues setObject:[NSNumber numberWithInt:3]
-                                forKey:@"c"]; 
-    
-    id result = [CalculatorBrain runProgram:self.history 
-                        usingVariableValues: self.testVariableValues];
-    
-    if ([result isKindOfClass:[NSNumber class]])
-        self.display.text = [NSString stringWithFormat:@"%g",
-                             [result doubleValue]];
-    else
-    {
-        UIAlertView *errorPopup = [[UIAlertView alloc] initWithTitle:@"ERROR" 
-                                                             message:result 
-                                                            delegate:nil 
-                                                   cancelButtonTitle:@"Cancel" 
-                                                   otherButtonTitles:nil];
-        
-        [errorPopup show];
-        
-        return;
-    }
-    
-    [self refreshDebugDisplayIfNeeded];
-}
-
-- (IBAction)test2Pressed 
-{
-    
-    [self.testVariableValues setObject:[NSNumber numberWithInt:0]
-                                forKey:@"a"];
-    
-    [self.testVariableValues setObject:[NSNumber numberWithInt:0]
-                                forKey:@"b"]; 
-
-    [self.testVariableValues setObject:[NSNumber numberWithInt:0]
-                                forKey:@"c"]; 
-        
-    id result = [CalculatorBrain runProgram:self.history 
-                        usingVariableValues:self.testVariableValues];
-        
-    if ([result isKindOfClass:[NSNumber class]])
-        self.display.text = [NSString stringWithFormat:@"%g",
-                             [result doubleValue]];
-    else
-    {
-        UIAlertView *errorPopup = [[UIAlertView alloc] initWithTitle:@"ERROR" 
-                                                             message:result 
-                                                            delegate:nil 
-                                                   cancelButtonTitle:@"Cancel" 
-                                                   otherButtonTitles:nil];
-        
-        [errorPopup show];
-        
-        return;
-    }
-    
-    [self refreshDebugDisplayIfNeeded];    
-    
-}
-
-- (IBAction)test3Pressed 
-{
-    
-    self.testVariableValues = nil;
-    
-    id result = [CalculatorBrain runProgram:self.history 
-                        usingVariableValues:self.testVariableValues];
-    
-    if ([result isKindOfClass:[NSNumber class]])
-        self.display.text = [NSString stringWithFormat:@"%g",
-                             [result doubleValue]];
-    else
-    {
-        UIAlertView *errorPopup = [[UIAlertView alloc] initWithTitle:@"ERROR" 
-                                                             message:result 
-                                                            delegate:nil 
-                                                   cancelButtonTitle:@"Cancel" 
-                                                   otherButtonTitles:nil];
-        
-        [errorPopup show];
-        
-        return;
-    }
-    
-    [self refreshDebugDisplayIfNeeded];
-
-}
-
 - (IBAction)undoPressed
 {
     
@@ -355,10 +240,21 @@
         [CalculatorBrain descriptionOfProgram:self.history];
 }
 
+#pragma mark -
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"CalculatorViewController prepareForSegue: sender:");
+    
+    if ([segue.identifier isEqualToString:@"Graph Segue"])
+        [(PlotViewController *)segue.destinationViewController 
+         setEquation:self.history];
+    
+}
+
 - (void)viewDidUnload 
 {
     [self setAuxillaryDisplay:nil];
-    [self setDebugDisplay:nil];
     
     [super viewDidUnload];
 }
