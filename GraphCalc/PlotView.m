@@ -29,22 +29,21 @@
     [self setNeedsDisplay];
 }
 
-#define INITIAL_SCALE 75.0
+#define INITIAL_SCALE 50.0
 
 - (void)awakeFromNib
 {
     self.scale = INITIAL_SCALE;
-    self.origin = self.center;
     self.bounds = self.frame;
+    self.origin = self.center;
 }
 
-// Returns a value that a graphical point on a plot (either x or y) represents.
-- (double)mappedValueAtPoint:(int)point
+- (double)mappedXValueAtPoint:(int)point
 {
-    return (double)point/self.scale;
+    return (self.origin.x - (double)point)/self.scale;
 }
 
-- (int)pointForMappedValue:(double)value
+- (int)pointForMappedYValue:(double)value
 {
     return (int)(self.origin.y+rint(value*self.scale));
 }
@@ -70,20 +69,20 @@
         
     [[UIColor redColor] set];
     
-    //double *values = malloc(self.bounds.size.width*sizeof(double));
     double value;
     
     state = OFF_THE_CHART;
     
     CGContextBeginPath(context);
+    CGContextSetLineJoin(context, kCGLineJoinRound);
     
     CGContextMoveToPoint(context, 0, self.origin.y);
 
     for (int x=0; x<self.bounds.size.width; x++)
     { // Two-state finite state machine is used to draw the curve.
-        value=[self.dataSource valueWhenXEquals:[self mappedValueAtPoint:x]];
+        value=[self.dataSource valueWhenXEquals:[self mappedXValueAtPoint:x]];
         
-        if ([self pointForMappedValue:value]>self.bounds.size.height)
+        if ([self pointForMappedYValue:value]>self.bounds.size.height)
         {
             if (state == ON_THE_CHART)
             {
@@ -99,10 +98,10 @@
                 CGContextBeginPath(context);
             else
                 CGContextAddLineToPoint(context, x, 
-                                        [self pointForMappedValue:value]);
+                                        [self pointForMappedYValue:value]);
             
             CGContextMoveToPoint(context, (CGFloat)x, 
-                                 [self pointForMappedValue:value]);
+                                 [self pointForMappedYValue:value]);
             
             state = ON_THE_CHART;            
         }

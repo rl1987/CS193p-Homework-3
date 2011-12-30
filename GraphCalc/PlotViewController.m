@@ -27,7 +27,7 @@
     NSLog(@"%@",_equation);
     
     //_equation = equation;  
-    _equation = [NSArray arrayWithObjects:@"x",@"cos",nil];
+    _equation = [NSArray arrayWithObjects:@"x",@"sin",nil];
     
     self.plotView.dataSource = self;
     
