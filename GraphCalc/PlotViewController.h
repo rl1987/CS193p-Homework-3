@@ -6,11 +6,11 @@
 
 @interface PlotViewController : UIViewController <PlotViewDataSource>
 {
-    id _equation;
 }
 
 @property (nonatomic,strong) IBOutlet PlotView *plotView;
+@property (nonatomic,weak) NSArray *equation;
 
-- (void)setEquation:(id)equation;
+- (void)setEquation:(NSArray *)equation;
 
 @end

@@ -82,7 +82,8 @@
     { // Two-state finite state machine is used to draw the curve.
         value=[self.dataSource valueWhenXEquals:[self mappedXValueAtPoint:x]];
         
-        if ([self pointForMappedYValue:value]>self.bounds.size.height)
+        if ((value == NAN) ||
+            ([self pointForMappedYValue:value]>self.bounds.size.height))
         {
             if (state == ON_THE_CHART)
             {

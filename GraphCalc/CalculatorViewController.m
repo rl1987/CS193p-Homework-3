@@ -245,6 +245,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"CalculatorViewController prepareForSegue: sender:");
+    NSLog(@"%@",self.history);    
     
     if ([segue.identifier isEqualToString:@"Graph Segue"])
         [(PlotViewController *)segue.destinationViewController 

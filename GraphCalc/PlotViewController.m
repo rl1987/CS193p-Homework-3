@@ -3,6 +3,7 @@
 @implementation PlotViewController
 
 @synthesize plotView = _plotView;
+@synthesize equation = _equation;
 
 -(double)valueWhenXEquals:(double)x
 {
@@ -21,21 +22,12 @@
     
 }
 
-- (void)setEquation:(id)equation;
-{
-    NSLog(@"PlotViewController setEquation:");
-    NSLog(@"%@",_equation);
-    
-    //_equation = equation;  
-    _equation = [NSArray arrayWithObjects:@"x",@"sin",nil];
-    
-    self.plotView.dataSource = self;
-    
-    [self.plotView setNeedsDisplay];
-    
-}
-
 #pragma mark - View lifecycle
+
+- (void)viewDidUnload
+{
+    _equation = nil;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:
 (UIInterfaceOrientation)interfaceOrientation
