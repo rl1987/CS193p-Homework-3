@@ -3,6 +3,7 @@
 @implementation PlotViewController
 
 @synthesize plotView = _plotView;
+@synthesize equationLabel = _equationLabel;
 @synthesize equation = _equation;
 
 -(double)valueWhenXEquals:(double)x
@@ -24,8 +25,20 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.equationLabel.text = 
+    [CalculatorBrain descriptionOfProgram:self.equation];
+    
+}
+
 - (void)viewDidUnload
 {
+    [super viewDidUnload];
+    
+    [self setEquationLabel:nil];
     _equation = nil;
 }
 

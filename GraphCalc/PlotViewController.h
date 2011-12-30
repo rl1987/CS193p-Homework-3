@@ -9,8 +9,7 @@
 }
 
 @property (nonatomic,strong) IBOutlet PlotView *plotView;
+@property (strong, nonatomic) IBOutlet UILabel *equationLabel;
 @property (nonatomic,weak) NSArray *equation;
-
-- (void)setEquation:(NSArray *)equation;
 
 @end
