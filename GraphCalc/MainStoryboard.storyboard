@@ -448,8 +448,12 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <connections>
                             <outlet property="dataSource" destination="mNN-YL-Sks" id="FOh-Es-CRg"/>
+                            <outletCollection property="gestureRecognizers" destination="QC3-zg-xyA" appends="YES" id="a2L-YC-YiN"/>
+                            <outletCollection property="gestureRecognizers" destination="VcP-fB-vlM" appends="YES" id="YFU-wc-9mG"/>
+                            <outletCollection property="gestureRecognizers" destination="caT-y3-Iof" appends="YES" id="gLV-xR-CUU"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Graph" id="Ko8-0D-uim"/>
@@ -458,6 +462,21 @@
                         <outlet property="plotView" destination="OYJ-wO-s7R" id="fz5-LN-Nz5"/>
                     </connections>
                 </viewController>
+                <pinchGestureRecognizer delaysTouchesEnded="NO" id="QC3-zg-xyA">
+                    <connections>
+                        <action selector="pinch:" destination="mNN-YL-Sks" id="80M-SF-O3D"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer delaysTouchesEnded="NO" minimumNumberOfTouches="1" id="VcP-fB-vlM">
+                    <connections>
+                        <action selector="pan:" destination="mNN-YL-Sks" id="52i-ow-yXT"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer delaysTouchesEnded="NO" numberOfTapsRequired="3" id="caT-y3-Iof">
+                    <connections>
+                        <action selector="tripleTap:" destination="mNN-YL-Sks" id="lJx-9O-TW2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-58" y="-176"/>
         </scene>
@@ -479,6 +498,31 @@
             <point key="canvasLocation" x="-968" y="-176"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CalculatorViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculatorViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="auxillaryDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PlotView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+            </relationships>
+        </class>
+        <class className="PlotViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="pan:"/>
+                <relationship kind="action" name="pinch:"/>
+                <relationship kind="action" name="tripleTap:"/>
+                <relationship kind="outlet" name="equationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="plotView" candidateClass="PlotView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -12,4 +12,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *equationLabel;
 @property (nonatomic,weak) NSArray *equation;
 
+- (IBAction)tripleTap:(UITapGestureRecognizer *)sender;
+- (IBAction)pan:(UIPanGestureRecognizer *)sender;
+- (IBAction)pinch:(UIPinchGestureRecognizer *)sender;
+
+
 @end

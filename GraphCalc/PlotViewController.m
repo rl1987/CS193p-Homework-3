@@ -49,4 +49,44 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)tripleTap:(UITapGestureRecognizer *)sender 
+{
+    
+    if (sender.state != UIGestureRecognizerStateEnded)
+        return;
+        
+    self.plotView.origin = [sender locationInView:self.plotView];
+    
+}
+
+- (IBAction)pan:(UIPanGestureRecognizer *)sender 
+{
+
+    if ( (sender.state == UIGestureRecognizerStateEnded) || 
+         (sender.state == UIGestureRecognizerStateChanged) )
+    {
+        CGPoint translation = [sender translationInView:self.view];
+        
+        self.plotView.origin = 
+        CGPointMake(self.plotView.origin.x+translation.x, 
+                    self.plotView.origin.y+translation.y);
+        
+        [sender setTranslation:CGPointZero inView:self.plotView];
+    }
+  
+}
+
+- (IBAction)pinch:(UIPinchGestureRecognizer *)sender 
+{
+  
+    if ( (sender.state == UIGestureRecognizerStateEnded) || 
+         (sender.state == UIGestureRecognizerStateChanged) )
+    {
+        self.plotView.scale*=sender.scale;
+        
+        sender.scale=1.0;        
+    }
+    
+}
+
 @end
