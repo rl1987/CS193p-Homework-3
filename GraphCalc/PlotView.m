@@ -45,7 +45,7 @@
 
 - (int)pointForMappedYValue:(double)value
 {
-    return (int)(self.origin.y+rint(value*self.scale));
+    return (int)(self.origin.y-rint(value*self.scale));
 }
 
 - (void)drawRect:(CGRect)rect
