@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B742C5C014AF37CE00627910 /* Storyboard-ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A24DEE14AF34CD0086B430 /* Storyboard-ipad.storyboard */; };
 		B776B8C314A9F25100ADE6ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C214A9F25100ADE6ED /* UIKit.framework */; };
 		B776B8C514A9F25100ADE6ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C414A9F25100ADE6ED /* Foundation.framework */; };
 		B776B8C714A9F25100ADE6ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C614A9F25100ADE6ED /* CoreGraphics.framework */; };
@@ -19,6 +20,18 @@
 		B776B8EE14A9F32600ADE6ED /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8EB14A9F32500ADE6ED /* PlotView.m */; };
 		B776B8EF14A9F32600ADE6ED /* PlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8ED14A9F32600ADE6ED /* PlotViewController.m */; };
 		B776B8F214A9F37F00ADE6ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B776B8F114A9F37F00ADE6ED /* MainStoryboard.storyboard */; };
+		B7A24DD814AF33DC0086B430 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8CE14A9F25100ADE6ED /* main.m */; };
+		B7A24DD914AF33DC0086B430 /* AxesDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E014A9F2B600ADE6ED /* AxesDrawer.m */; };
+		B7A24DDA14AF33DC0086B430 /* CalculatorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E214A9F2B600ADE6ED /* CalculatorAppDelegate.m */; };
+		B7A24DDB14AF33DC0086B430 /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E414A9F2B600ADE6ED /* CalculatorBrain.m */; };
+		B7A24DDC14AF33DC0086B430 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8E614A9F2B600ADE6ED /* CalculatorViewController.m */; };
+		B7A24DDD14AF33DC0086B430 /* PlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8EB14A9F32500ADE6ED /* PlotView.m */; };
+		B7A24DDE14AF33DC0086B430 /* PlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B776B8ED14A9F32600ADE6ED /* PlotViewController.m */; };
+		B7A24DE014AF33DC0086B430 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C214A9F25100ADE6ED /* UIKit.framework */; };
+		B7A24DE114AF33DC0086B430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C414A9F25100ADE6ED /* Foundation.framework */; };
+		B7A24DE214AF33DC0086B430 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B776B8C614A9F25100ADE6ED /* CoreGraphics.framework */; };
+		B7A24DE414AF33DC0086B430 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B776B8CB14A9F25100ADE6ED /* InfoPlist.strings */; };
+		B7A24DEF14AF34CE0086B430 /* Storyboard-ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A24DEE14AF34CD0086B430 /* Storyboard-ipad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +56,9 @@
 		B776B8ED14A9F32600ADE6ED /* PlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotViewController.m; sourceTree = "<group>"; };
 		B776B8F014A9F33200ADE6ED /* PlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotView.h; sourceTree = "<group>"; };
 		B776B8F114A9F37F00ADE6ED /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B7A24DE914AF33DC0086B430 /* GraphCalc-iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphCalc-iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A24DEC14AF33DD0086B430 /* GraphCalc copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GraphCalc copy-Info.plist"; path = "/Users/avitelaavitela/ios_dev/CS193p-Homework-3/GraphCalc/GraphCalc copy-Info.plist"; sourceTree = "<absolute>"; };
+		B7A24DEE14AF34CD0086B430 /* Storyboard-ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard-ipad.storyboard"; path = "GraphCalc/Storyboard-ipad.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +72,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7A24DDF14AF33DC0086B430 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A24DE014AF33DC0086B430 /* UIKit.framework in Frameworks */,
+				B7A24DE114AF33DC0086B430 /* Foundation.framework in Frameworks */,
+				B7A24DE214AF33DC0086B430 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B776B8B314A9F25100ADE6ED = {
 			isa = PBXGroup;
 			children = (
+				B7A24DEB14AF33DC0086B430 /* Resources-iPad */,
 				B776B8C814A9F25100ADE6ED /* GraphCalc */,
 				B776B8C114A9F25100ADE6ED /* Frameworks */,
 				B776B8BF14A9F25100ADE6ED /* Products */,
@@ -72,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				B776B8BE14A9F25100ADE6ED /* GraphCalc.app */,
+				B7A24DE914AF33DC0086B430 /* GraphCalc-iPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,11 +139,20 @@
 			isa = PBXGroup;
 			children = (
 				B776B8CA14A9F25100ADE6ED /* GraphCalc-Info.plist */,
+				B7A24DEC14AF33DD0086B430 /* GraphCalc copy-Info.plist */,
 				B776B8CB14A9F25100ADE6ED /* InfoPlist.strings */,
 				B776B8CE14A9F25100ADE6ED /* main.m */,
 				B776B8D014A9F25100ADE6ED /* GraphCalc-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7A24DEB14AF33DC0086B430 /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				B7A24DEE14AF34CD0086B430 /* Storyboard-ipad.storyboard */,
+			);
+			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +173,24 @@
 			name = GraphCalc;
 			productName = GraphCalc;
 			productReference = B776B8BE14A9F25100ADE6ED /* GraphCalc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7A24DD614AF33DC0086B430 /* GraphCalc-iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7A24DE614AF33DC0086B430 /* Build configuration list for PBXNativeTarget "GraphCalc-iPad" */;
+			buildPhases = (
+				B7A24DD714AF33DC0086B430 /* Sources */,
+				B7A24DDF14AF33DC0086B430 /* Frameworks */,
+				B7A24DE314AF33DC0086B430 /* Resources */,
+				B742C5C214B4500F00627910 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GraphCalc-iPad";
+			productName = GraphCalc;
+			productReference = B7A24DE914AF33DC0086B430 /* GraphCalc-iPad.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,6 +214,7 @@
 			projectRoot = "";
 			targets = (
 				B776B8BD14A9F25100ADE6ED /* GraphCalc */,
+				B7A24DD614AF33DC0086B430 /* GraphCalc-iPad */,
 			);
 		};
 /* End PBXProject section */
@@ -170,10 +226,36 @@
 			files = (
 				B776B8CD14A9F25100ADE6ED /* InfoPlist.strings in Resources */,
 				B776B8F214A9F37F00ADE6ED /* MainStoryboard.storyboard in Resources */,
+				B7A24DEF14AF34CE0086B430 /* Storyboard-ipad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7A24DE314AF33DC0086B430 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B742C5C014AF37CE00627910 /* Storyboard-ipad.storyboard in Resources */,
+				B7A24DE414AF33DC0086B430 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B742C5C214B4500F00627910 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B776B8BA14A9F25100ADE6ED /* Sources */ = {
@@ -187,6 +269,20 @@
 				B776B8EA14A9F2B600ADE6ED /* CalculatorViewController.m in Sources */,
 				B776B8EE14A9F32600ADE6ED /* PlotView.m in Sources */,
 				B776B8EF14A9F32600ADE6ED /* PlotViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7A24DD714AF33DC0086B430 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A24DD814AF33DC0086B430 /* main.m in Sources */,
+				B7A24DD914AF33DC0086B430 /* AxesDrawer.m in Sources */,
+				B7A24DDA14AF33DC0086B430 /* CalculatorAppDelegate.m in Sources */,
+				B7A24DDB14AF33DC0086B430 /* CalculatorBrain.m in Sources */,
+				B7A24DDC14AF33DC0086B430 /* CalculatorViewController.m in Sources */,
+				B7A24DDD14AF33DC0086B430 /* PlotView.m in Sources */,
+				B7A24DDE14AF33DC0086B430 /* PlotViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +306,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -235,7 +331,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -252,10 +348,13 @@
 		B776B8DD14A9F25100ADE6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraphCalc/GraphCalc-Prefix.pch";
 				INFOPLIST_FILE = "GraphCalc/GraphCalc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -263,10 +362,41 @@
 		B776B8DE14A9F25100ADE6ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GraphCalc/GraphCalc-Prefix.pch";
 				INFOPLIST_FILE = "GraphCalc/GraphCalc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B7A24DE714AF33DC0086B430 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GraphCalc/GraphCalc-Prefix.pch";
+				INFOPLIST_FILE = "GraphCalc copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "GraphCalc-iPad";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B7A24DE814AF33DC0086B430 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GraphCalc/GraphCalc-Prefix.pch";
+				INFOPLIST_FILE = "GraphCalc copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "GraphCalc-iPad";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -290,6 +420,16 @@
 				B776B8DE14A9F25100ADE6ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7A24DE614AF33DC0086B430 /* Build configuration list for PBXNativeTarget "GraphCalc-iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7A24DE714AF33DC0086B430 /* Debug */,
+				B7A24DE814AF33DC0086B430 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
