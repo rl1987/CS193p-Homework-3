@@ -35,7 +35,7 @@
        forPopoverController:(UIPopoverController*)pc
 {
     
-    NSLog(@"CalculatorViewController splitViewController: willHideViewController: \
+    NSLog(@"PlotViewController splitViewController: willHideViewController: \
           withBarButtonItem: forPopoverController:");
     
     barButtonItem.title = @"Calculator";
@@ -57,17 +57,6 @@
         self.toolbar.items = nil;
 }
 
-// Called when the view controller is shown in a popover so the delegate can 
-// take action like hiding other popovers.
-/*
-- (void)splitViewController:(UISplitViewController*)svc 
-          popoverController:(UIPopoverController*)pc 
-  willPresentViewController:(UIViewController *)aViewController
-{
-    
-}
-*/
-
 // Returns YES if a view controller should be hidden by the split view 
 // controller in a given orientation.
 // (This method is only called on the leftmost view controller and only 
@@ -85,30 +74,70 @@
 
 - (void)awakeFromNib
 {
+    NSLog(@"PlotViewController awakeFromNib");
+    
     [super awakeFromNib];
     
     if (self.splitViewController)
         self.splitViewController.delegate = self;
     
-    [self.plotView setNeedsDisplay];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    NSLog(@"PlotViewController viewWillAppear:");
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"scale"])  
+    {
+        double scale = [[defaults objectForKey:@"scale"] doubleValue];
+        self.plotView.scale = scale;
+    }
+    
+    if ([defaults objectForKey:@"origin.x"] && 
+        [defaults objectForKey:@"origin.y"])
+    {
+        double ox = [[defaults objectForKey:@"origin.x"] doubleValue];
+        double oy = [[defaults objectForKey:@"origin.y"] doubleValue];
+        
+        self.plotView.origin = CGPointMake(ox, oy);
+    }
+        
     self.equationLabel.text = 
     [CalculatorBrain descriptionOfProgram:self.equation];
     
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+    NSLog(@"PlotViewController viewWillDisappear");
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:[NSNumber numberWithDouble:self.plotView.scale] 
+                 forKey:@"scale"];
+ 
+    [defaults setObject:[NSNumber numberWithDouble:self.plotView.origin.x] 
+                 forKey:@"origin.x"];
+    [defaults setObject:[NSNumber numberWithDouble:self.plotView.origin.y] 
+                 forKey:@"origin.y"];    
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    
+
     [self setEquationLabel:nil];
     _equation = nil;
     
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:

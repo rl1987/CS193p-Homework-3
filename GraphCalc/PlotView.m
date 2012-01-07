@@ -33,6 +33,8 @@
 
 - (void)awakeFromNib
 {
+    NSLog(@"PlotView awakeFromNib");
+    
     [super awakeFromNib];
     
     self.scale = INITIAL_SCALE;

@@ -73,7 +73,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1403" y="779"/>
+            <point key="canvasLocation" x="-1411" y="913"/>
         </scene>
         <scene sceneID="rqe-y8-SMT">
             <objects>
@@ -516,32 +516,6 @@
             <point key="canvasLocation" x="-1403" y="-202"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CalculatorViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculatorViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="auxillaryDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="PlotView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-            </relationships>
-        </class>
-        <class className="PlotViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlotViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="pinch:" candidateClass="UIPinchGestureRecognizer"/>
-                <relationship kind="action" name="tripleTap:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="outlet" name="equationLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="plotView" candidateClass="PlotView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
