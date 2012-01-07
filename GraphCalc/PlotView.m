@@ -33,9 +33,13 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
     self.scale = INITIAL_SCALE;
     self.bounds = self.frame;
     self.origin = self.center;
+    self.contentMode = UIViewContentModeRedraw;
+    self.contentScaleFactor = 2.0;
 }
 
 - (double)mappedXValueAtPoint:(int)point

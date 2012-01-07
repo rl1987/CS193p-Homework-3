@@ -20,7 +20,7 @@
 @synthesize history = _history;
 @synthesize testVariableValues = _testVariableValues;
 
-#define kHistoryCapacity 64 // We're only allowing a limited number of history 
+#define kHistoryCapacity 64 // We're allowing only a limited number of history 
                             // items to be remembered.
 
 - (CalculatorBrain *)brain
@@ -240,6 +240,20 @@
         [CalculatorBrain descriptionOfProgram:self.history];
 }
 
+- (IBAction)graphPressed 
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom]!=UIUserInterfaceIdiomPad)
+        return;
+    
+    id pvc = [self.splitViewController.viewControllers lastObject];
+        
+    NSAssert([pvc isKindOfClass:[PlotViewController class]], 
+             @"ERROR: Detail view controller is not a PlotViewController");
+        
+    [(PlotViewController *) pvc setEquation:self.history];
+    [[(PlotViewController *) pvc plotView] setNeedsDisplay];
+}
+
 #pragma mark -
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -258,6 +272,20 @@
     [self setAuxillaryDisplay:nil];
     
     [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:
+(UIInterfaceOrientation)orientation
+{
+    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
+    
+    if (idiom == UIUserInterfaceIdiomPad)
+        return YES;
+    else if (idiom == UIUserInterfaceIdiomPhone)
+        return (orientation == UIInterfaceOrientationIsPortrait(orientation));
+                
+    return NO;
+        
 }
 
 @end
