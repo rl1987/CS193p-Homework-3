@@ -7,6 +7,18 @@
 @synthesize equation = _equation;
 @synthesize toolbar = _toolbar;
 
+- (void)setEquation:(NSArray *)equation
+{
+    if (_equation == equation)
+        return;
+    
+    _equation = equation;
+    
+    self.equationLabel.text = [CalculatorBrain descriptionOfProgram:equation];
+    
+    [self.plotView setNeedsDisplay];
+}
+
 #pragma mark -
 #pragma mark Plot View Data Source
 
