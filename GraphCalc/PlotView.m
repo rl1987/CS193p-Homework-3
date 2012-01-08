@@ -44,14 +44,14 @@
     self.contentScaleFactor = 2.0;
 }
 
-- (double)mappedXValueAtPoint:(int)point
+- (double)mappedXValueAtPoint:(CGFloat)point
 {
-    return (self.origin.x - (double)point)/self.scale;
+    return (double)((-1.0)*(self.origin.x - point)/self.scale);
 }
 
-- (int)pointForMappedYValue:(double)value
+- (CGFloat)pointForMappedYValue:(double)value
 {
-    return (int)(self.origin.y-rint(value*self.scale));
+    return (CGFloat)(rint(self.origin.y-value*self.scale));
 }
 
 - (void)drawRect:(CGRect)rect
@@ -84,11 +84,11 @@
     
     CGContextMoveToPoint(context, 0, self.origin.y);
 
-    for (int x=0; x<self.bounds.size.width; x++)
+    for (CGFloat x=0.0; x<=self.bounds.size.width; x+=1.0)
     { // Two-state finite state machine is used to draw the curve.
         value=[self.dataSource valueWhenXEquals:[self mappedXValueAtPoint:x]];
         
-        if ((value == NAN) ||
+        if ((value == INFINITY) ||
             ([self pointForMappedYValue:value]>self.bounds.size.height))
         {
             if (state == ON_THE_CHART)

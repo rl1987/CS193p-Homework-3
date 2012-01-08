@@ -7,6 +7,9 @@
 @synthesize equation = _equation;
 @synthesize toolbar = _toolbar;
 
+#pragma mark -
+#pragma mark Plot View Data Source
+
 -(double)valueWhenXEquals:(double)x
 {
     
@@ -17,10 +20,12 @@
     id returnValue = [CalculatorBrain runProgram:_equation 
                              usingVariableValues:variableDict];
     
+    //NSLog(@"%3.3f %3.3f",x,[returnValue doubleValue]);
+    
     if ([returnValue isKindOfClass:[NSNumber class]])
         return [returnValue doubleValue];
     else
-        return NAN;
+        return INFINITY;
     
 }
 
